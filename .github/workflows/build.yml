@@ -56,7 +56,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: macos-build
-          path: desktop/build/compose/binaries/main/dmg/composedesktop-*.dmg
+          path: desktop/build/compose/binaries/main/dmg/composedesktop*.dmg
 
   build_linux:
     runs-on: ubuntu-latest
@@ -76,7 +76,8 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: linux-build
-          path: desktop/build/compose/binaries/main/deb/composedesktop-*.deb
+          path: desktop/build/compose/binaries/main/deb/composedesktop*.deb
+
 
   build_windows:
     runs-on: windows-latest
@@ -85,7 +86,7 @@ jobs:
       - name: Set up JDK 17
         uses: actions/setup-java@v3
         with:
-          java-version: '11'
+          java-version: '17'
           distribution: 'microsoft'
       - name: Build with Gradle
         uses: gradle/gradle-build-action@v2
@@ -96,7 +97,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: windows-build
-          path: desktop/build/compose/binaries/main/msi/composedesktop-*.msi
+          path: desktop/build/compose/binaries/main/msi/composedesktop*.msi
 
   release:
     if: startsWith(github.ref, 'refs/tags/')
@@ -116,6 +117,6 @@ jobs:
         with:
           files: |
             android/build/outputs/apk/debug/android-debug.apk
-            desktop/build/compose/binaries/main/dmg/composedesktop-*.dmg
-            desktop/build/compose/binaries/main/deb/composedesktop-*.deb
-            desktop/build/compose/binaries/main/msi/composedesktop-*.msi
+            desktop/build/compose/binaries/main/dmg/composedesktop*.dmg
+            desktop/build/compose/binaries/main/deb/composedesktop*.deb
+            desktop/build/compose/binaries/main/msi/composedesktop*.msi
