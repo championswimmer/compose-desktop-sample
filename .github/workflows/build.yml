@@ -116,7 +116,7 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: |
-            android/build/outputs/apk/debug/android-debug.apk
-            desktop/build/compose/binaries/main/dmg/composedesktop*.dmg
-            desktop/build/compose/binaries/main/deb/composedesktop*.deb
-            desktop/build/compose/binaries/main/msi/composedesktop*.msi
+            build/android-build/android-debug.apk
+            build/macos-build/composedesktop*.dmg
+            build/linux-build/composedesktop*.deb
+            build/windows-build/composedesktop*.msi
